@@ -1,6 +1,6 @@
 /* ==========================================================================
-   AURORA WEB — MASTER CSS FOUNDATION & HERO PROTOTYPE v3 (R2 PASS)
-   PRECISION ARC CORRECTION
+   AURORA WEB — MASTER CSS FOUNDATION
+   HERO v1.0 (WITH FINAL SIGNATURE REFINEMENT), SECTION 02 AURORA (R1), SECTION 03 EXPERIENCE (R7), SECTION 04 TECHNOLOGY (R1), SECTION 05 VISION (R1), SECTION 06 CONTACT & FOOTER (v1 POLISHED)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -54,7 +54,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   2. MINIMAL AMBIENT NAVIGATION
+   2. MINIMAL AMBIENT NAVIGATION (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
@@ -126,7 +126,7 @@ body.is-loaded .site-header {
 }
 
 /* --------------------------------------------------------------------------
-   3. HERO SECTION & PURE BLACK ENVIRONMENT
+   3. HERO SECTION & PURE BLACK ENVIRONMENT (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
@@ -165,7 +165,7 @@ body.is-loaded .site-header {
 }
 
 /* --------------------------------------------------------------------------
-   4. NATIVE WEB SVG PRECISION ARC (R2: Exact AURORA Wordmark Alignment)
+   4. NATIVE WEB SVG PRECISION ARC (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
 .hero-arc-container {
   width: 90%;
@@ -189,7 +189,7 @@ body.is-loaded .hero-arc-container {
 }
 
 /* --------------------------------------------------------------------------
-   5. LOGO AURORA HD (IMMUTABLE BRAND AUTHORITY)
+   5. LOGO AURORA HD (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
 .hero-logo-wrapper {
   position: relative;
@@ -218,12 +218,13 @@ body.is-loaded .hero-logo-wrapper {
 }
 
 /* --------------------------------------------------------------------------
-   6. BRAND SIGNATURE & STAY TUNED
+   6. BRAND SIGNATURE & STAY TUNED (FROZEN REFERENCE v1.0 WITH FINAL REFINEMENT)
    -------------------------------------------------------------------------- */
 
-/* Conceptual Brand Signature */
+/* Conceptual Brand Signature (With Controlled +16px Vertical Separation) */
 .hero-signature-block {
-  margin-bottom: 1.6rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2.0rem;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1.6s var(--ease-cinematic) 0.6s, transform 1.6s var(--ease-cinematic) 0.6s;
@@ -234,6 +235,7 @@ body.is-loaded .hero-signature-block {
   transform: translateY(0);
 }
 
+/* Left-to-Right Moving Aurora Spectral Energy Wave (Asynchronous 11s Cycle) */
 .signature-line {
   display: flex;
   align-items: center;
@@ -244,24 +246,41 @@ body.is-loaded .hero-signature-block {
   font-size: 0.96rem;
   font-weight: 400;
   letter-spacing: 0.38em;
-  color: var(--color-text-silver);
   text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.92) 35%,
+    #38cdf0 44%,
+    #2b7fff 50%,
+    #9d42f5 56%,
+    #e042f5 62%,
+    rgba(255, 255, 255, 0.92) 70%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sigSpectralSweep 11s infinite linear;
+}
+
+@keyframes sigSpectralSweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }
 
 .sig-word {
-  color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.38em;
   white-space: nowrap;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.sig-word:hover {
-  color: #ffffff;
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
 }
 
 .sig-dot {
-  color: var(--color-text-muted);
   font-weight: 300;
   opacity: 0.6;
   user-select: none;
@@ -352,10 +371,9 @@ body.is-loaded .hero-scroll-indicator {
 }
 
 /* --------------------------------------------------------------------------
-   7. RESPONSIVE BREAKPOINTS (R2 PROPORTIONAL FIT)
+   7. HERO RESPONSIVE BREAKPOINTS (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
 
-/* Widescreen Desktop (1600px+) */
 @media (min-width: 1600px) {
   .hero-arc-container {
     max-width: 850px;
@@ -363,6 +381,10 @@ body.is-loaded .hero-scroll-indicator {
   }
   .hero-logo-wrapper {
     max-width: 940px;
+  }
+  .hero-signature-block {
+    margin-top: 1.4rem;
+    margin-bottom: 2.2rem;
   }
   .signature-line {
     font-size: 1.02rem;
@@ -374,7 +396,6 @@ body.is-loaded .hero-scroll-indicator {
   }
 }
 
-/* Standard Desktop / Laptop (1200px - 1599px) */
 @media (max-width: 1599px) {
   .hero-arc-container {
     max-width: 740px;
@@ -384,7 +405,6 @@ body.is-loaded .hero-scroll-indicator {
   }
 }
 
-/* Small Laptop / Tablet Landscape (992px - 1199px) */
 @media (max-width: 1199px) {
   .hero-arc-container {
     max-width: 610px;
@@ -393,6 +413,10 @@ body.is-loaded .hero-scroll-indicator {
   .hero-logo-wrapper {
     max-width: 680px;
     margin-bottom: 1.4rem;
+  }
+  .hero-signature-block {
+    margin-top: 1.1rem;
+    margin-bottom: 1.8rem;
   }
   .signature-line {
     font-size: 0.88rem;
@@ -405,7 +429,6 @@ body.is-loaded .hero-scroll-indicator {
   }
 }
 
-/* Tablet Portrait (768px - 991px) */
 @media (max-width: 991px) {
   .site-header {
     padding: 1.8rem 2rem;
@@ -425,6 +448,10 @@ body.is-loaded .hero-scroll-indicator {
     max-width: 560px;
     margin-bottom: 1.2rem;
   }
+  .hero-signature-block {
+    margin-top: 1.0rem;
+    margin-bottom: 1.6rem;
+  }
   .signature-line {
     font-size: 0.8rem;
     letter-spacing: 0.3em;
@@ -436,7 +463,6 @@ body.is-loaded .hero-scroll-indicator {
   }
 }
 
-/* Mobile Portrait (up to 767px) */
 @media (max-width: 767px) {
   .site-header {
     padding: 1.4rem 1.2rem;
@@ -460,7 +486,8 @@ body.is-loaded .hero-scroll-indicator {
     margin-bottom: 1.2rem;
   }
   .hero-signature-block {
-    margin-bottom: 1.2rem;
+    margin-top: 0.9rem;
+    margin-bottom: 1.4rem;
   }
   .signature-line {
     font-size: 0.74rem;
@@ -477,7 +504,6 @@ body.is-loaded .hero-scroll-indicator {
   }
 }
 
-/* Ultra Small Mobile (up to 380px) */
 @media (max-width: 380px) {
   .nav-list {
     gap: 0.8rem;
@@ -504,7 +530,1471 @@ body.is-loaded .hero-scroll-indicator {
 }
 
 /* --------------------------------------------------------------------------
-   8. ACCESSIBILITY / REDUCED MOTION
+   8. SECTION 02 — AURORA (PRODUCT VISION v1 R1 PASS)
+   -------------------------------------------------------------------------- */
+.section-aurora {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 12rem 2rem 14rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Editorial Architectural Layout Grid */
+.aurora-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+/* Left Column: Section Index Meta */
+.aurora-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+.section-number {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.section-divider {
+  opacity: 0.5;
+}
+
+.section-label {
+  letter-spacing: 0.34em;
+}
+
+/* Right Column: Authoritative Editorial Narrative */
+.aurora-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Major Typographic Headline (Fail-Safe Base: Visible by default) */
+.aurora-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 2.8rem;
+  max-width: 900px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.1s, transform 1.4s var(--ease-cinematic) 0.1s;
+}
+
+/* Body Narrative Measure (Fail-Safe Base: Visible by default) */
+.aurora-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 680px;
+  margin-bottom: 3.8rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.3s, transform 1.4s var(--ease-cinematic) 0.3s;
+}
+
+.aurora-body p {
+  margin-bottom: 1.8rem;
+}
+
+.aurora-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Separated Conceptual Line Block (Fail-Safe Base: Visible by default) */
+.aurora-conceptual-block {
+  position: relative;
+  max-width: 680px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.5s, transform 1.4s var(--ease-cinematic) 0.5s;
+}
+
+/* Single Refined Aurora Spectral Color Accent Rule */
+.conceptual-accent-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  margin-bottom: 1.6rem;
+}
+
+.conceptual-line {
+  font-family: var(--font-family-code);
+  font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* Progressive Reveal Override when initialized by JS Observer */
+body.is-loaded .section-aurora:not(.is-in-view) .aurora-headline,
+body.is-loaded .section-aurora:not(.is-in-view) .aurora-body,
+body.is-loaded .section-aurora:not(.is-in-view) .aurora-conceptual-block {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-aurora.is-in-view .aurora-headline,
+.section-aurora.is-in-view .aurora-body,
+.section-aurora.is-in-view .aurora-conceptual-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section 02 Responsive Grid Adaptations */
+@media (max-width: 1023px) {
+  .section-aurora {
+    padding: 8rem 2rem 10rem;
+  }
+  .aurora-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .aurora-meta {
+    padding-top: 0;
+  }
+  .aurora-headline {
+    margin-bottom: 2.2rem;
+  }
+  .aurora-body {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-aurora {
+    padding: 6rem 1.2rem 8rem;
+  }
+  .aurora-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.8rem;
+  }
+  .aurora-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .conceptual-line {
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 03 — EXPERIENCE (PRECISION SIGNAL CHAIN v1 R7 SCALE PASS)
+   -------------------------------------------------------------------------- */
+.section-experience {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 10rem 2rem 14rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Architectural Layout Grid */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+/* Left Column: Section Index Meta */
+.experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+/* Right Column Narrative */
+.experience-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Major Typographic Headline (Fail-Safe Base: Visible by default) */
+.experience-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.1s, transform 1.4s var(--ease-cinematic) 0.1s;
+}
+
+/* Body Narrative Measure (Fail-Safe Base: Visible by default) */
+.experience-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 680px;
+  margin-bottom: 3.5rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.25s, transform 1.4s var(--ease-cinematic) 0.25s;
+}
+
+/* Precision Signal Chain Diagram Wrapper (R7 Desktop Footprint: 1140px / +60% Authority Boost) */
+.experience-diagram-wrapper {
+  margin: 3.5rem 0 5.5rem;
+  width: 100%;
+  max-width: 1140px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.45s, transform 1.4s var(--ease-cinematic) 0.45s;
+}
+
+.diagram-desktop-view {
+  width: 100%;
+  display: block;
+}
+
+.diagram-mobile-view {
+  display: none;
+}
+
+.schematic-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* SVG Terminal & Stage Text Labels */
+.terminal-text {
+  font-family: var(--font-family-code);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  fill: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+.stage-label {
+  font-family: var(--font-family-code);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  fill: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+/* R7 Processor Box Styling & Pass-Through Internal Reactions (ZERO Spatial Movement) */
+.processor-box {
+  stroke: rgba(255, 255, 255, 0.65);
+  transition: stroke 0.6s ease;
+}
+
+.micro-glyph {
+  opacity: 0.85;
+  transition: opacity 0.6s ease;
+}
+
+.r7-analyze-box {
+  animation: analyzeBoxIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-understand-box {
+  animation: understandBoxIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-decide-box {
+  animation: decideBoxIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-apply-box {
+  animation: applyBoxIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes analyzeBoxIllumination {
+  0%, 12%, 36%, 100% {
+    stroke: rgba(255, 255, 255, 0.65);
+  }
+  24% {
+    stroke: #38cdf0;
+  }
+}
+
+@keyframes understandBoxIllumination {
+  0%, 32%, 56%, 100% {
+    stroke: rgba(255, 255, 255, 0.65);
+  }
+  44% {
+    stroke: #2b7fff;
+  }
+}
+
+@keyframes decideBoxIllumination {
+  0%, 52%, 76%, 100% {
+    stroke: rgba(255, 255, 255, 0.65);
+  }
+  64% {
+    stroke: #9d42f5;
+  }
+}
+
+@keyframes applyBoxIllumination {
+  0%, 72%, 96%, 100% {
+    stroke: rgba(255, 255, 255, 0.65);
+  }
+  84% {
+    stroke: #e042f5;
+  }
+}
+
+/* Sequence Conclusion Block (Fail-Safe Base: Visible by default) */
+.experience-sequence-block {
+  position: relative;
+  max-width: 680px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.65s, transform 1.4s var(--ease-cinematic) 0.65s;
+}
+
+.sequence-accent-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  margin-bottom: 1.8rem;
+}
+
+.sequence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sequence-item {
+  font-family: var(--font-family-code);
+  font-size: clamp(0.98rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+}
+
+/* Progressive Reveal Override when initialized by JS Observer */
+body.is-loaded .section-experience:not(.is-in-view) .experience-headline,
+body.is-loaded .section-experience:not(.is-in-view) .experience-body,
+body.is-loaded .section-experience:not(.is-in-view) .experience-diagram-wrapper,
+body.is-loaded .section-experience:not(.is-in-view) .experience-sequence-block {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-experience.is-in-view .experience-headline,
+.section-experience.is-in-view .experience-body,
+.section-experience.is-in-view .experience-diagram-wrapper,
+.section-experience.is-in-view .experience-sequence-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Grid & Mobile Precision Schematic Chain */
+@media (max-width: 1023px) {
+  .section-experience {
+    padding: 7rem 2rem 9rem;
+  }
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .experience-meta {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-experience {
+    padding: 5rem 1.2rem 7rem;
+  }
+  .experience-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.8rem;
+  }
+  .experience-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .experience-diagram-wrapper {
+    margin: 2rem 0 4rem;
+  }
+  
+  /* Mobile Precision Schematic Chain View (Top -> Bottom, No Cards/Boxes) */
+  .diagram-desktop-view {
+    display: none;
+  }
+  .diagram-mobile-view {
+    display: block;
+    width: 100%;
+  }
+  
+  .mobile-schematic-chain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .mobile-terminal-node {
+    padding: 0.5rem 1.4rem;
+    border-radius: 4px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .m-terminal-txt {
+    font-family: var(--font-family-code);
+    font-size: 0.82rem;
+    letter-spacing: 0.24em;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .mobile-processor-node {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .m-processor-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  
+  .m-processor-label {
+    font-family: var(--font-family-code);
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .mobile-conductor-line {
+    width: 1px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .m-conductor-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, #38cdf0, transparent);
+    animation: scrollPulse 2.2s infinite ease-in-out;
+  }
+
+  .sequence-item {
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION 04 — TECHNOLOGY (TECHNOLOGY LANDSCAPE v1 R1 PASS)
+   -------------------------------------------------------------------------- */
+.section-technology {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 10rem 2rem 14rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Architectural Layout Grid */
+.technology-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+/* Left Column: Section Index Meta */
+.technology-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+/* Right Column Narrative */
+.technology-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Major Typographic Headline (Fail-Safe Base: Visible by default) */
+.technology-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.1s, transform 1.4s var(--ease-cinematic) 0.1s;
+}
+
+/* Body Narrative Measure (Fail-Safe Base: Visible by default) */
+.technology-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 680px;
+  margin-bottom: 3.8rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.25s, transform 1.4s var(--ease-cinematic) 0.25s;
+}
+
+.technology-body p {
+  margin-bottom: 1.8rem;
+}
+
+.technology-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Abstract Technology Field Vector Composition (Desktop/Tablet Footprint: 1200px / R1 +22% Scale Boost) */
+.technology-field-wrapper {
+  margin: 4rem 0 5rem;
+  width: 100%;
+  max-width: 1200px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.45s, transform 1.4s var(--ease-cinematic) 0.45s;
+}
+
+.tech-field-desktop-view {
+  width: 100%;
+  display: block;
+}
+
+.tech-field-mobile-view {
+  display: none;
+}
+
+.tech-field-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.tech-territory-title {
+  font-family: var(--font-family-code);
+  font-size: 0.90rem;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  fill: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+.tech-node-circle {
+  transition: stroke 0.6s ease;
+}
+
+.circle-analysis {
+  animation: techNodeGlowAnalysis 12s infinite ease-in-out;
+}
+
+.circle-understanding {
+  animation: techNodeGlowUnderstanding 12s infinite ease-in-out 3s;
+}
+
+.circle-decision {
+  animation: techNodeGlowDecision 12s infinite ease-in-out 6s;
+}
+
+.circle-processing {
+  animation: techNodeGlowProcessing 12s infinite ease-in-out 9s;
+}
+
+@keyframes techNodeGlowAnalysis {
+  0%, 100% { stroke: rgba(255, 255, 255, 0.70); }
+  25% { stroke: #38cdf0; }
+}
+
+@keyframes techNodeGlowUnderstanding {
+  0%, 100% { stroke: rgba(255, 255, 255, 0.70); }
+  25% { stroke: #2b7fff; }
+}
+
+@keyframes techNodeGlowDecision {
+  0%, 100% { stroke: rgba(255, 255, 255, 0.70); }
+  25% { stroke: #9d42f5; }
+}
+
+@keyframes techNodeGlowProcessing {
+  0%, 100% { stroke: rgba(255, 255, 255, 0.70); }
+  25% { stroke: #e042f5; }
+}
+
+/* Accessible Editorial HTML Presentation of the Four Territories (Fail-Safe Base: Visible) */
+.technology-territories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem 4rem;
+  max-width: 1040px;
+  margin-top: 1rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.6s, transform 1.4s var(--ease-cinematic) 0.6s;
+}
+
+.territory-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.territory-title {
+  font-family: var(--font-family-code);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+.territory-desc {
+  font-family: var(--font-family-main);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-silver);
+}
+
+/* Progressive Reveal Override when initialized by JS Observer */
+body.is-loaded .section-technology:not(.is-in-view) .technology-headline,
+body.is-loaded .section-technology:not(.is-in-view) .technology-body,
+body.is-loaded .section-technology:not(.is-in-view) .technology-field-wrapper,
+body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-technology.is-in-view .technology-headline,
+.section-technology.is-in-view .technology-body,
+.section-technology.is-in-view .technology-field-wrapper,
+.section-technology.is-in-view .technology-territories-grid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section 04 Responsive Grid Adaptations */
+@media (max-width: 1023px) {
+  .section-technology {
+    padding: 7rem 2rem 9rem;
+  }
+  .technology-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .technology-meta {
+    padding-top: 0;
+  }
+  .technology-territories-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-technology {
+    padding: 5rem 1.2rem 7rem;
+  }
+  .technology-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.8rem;
+  }
+  .technology-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .technology-field-wrapper {
+    margin: 2rem 0 3.5rem;
+  }
+
+  /* Mobile Technology Field Sequence */
+  .tech-field-desktop-view {
+    display: none;
+  }
+  .tech-field-mobile-view {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-tech-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .mobile-tech-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 0.8rem 0;
+  }
+
+  .m-tech-anchor {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .m-anchor-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+  }
+
+  .m-tech-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .m-tech-title {
+    font-family: var(--font-family-code);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .m-tech-desc {
+    font-family: var(--font-family-main);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-text-silver);
+  }
+
+  .m-tech-connector {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-left: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. SECTION 05 — VISION (EXPANDING CONTEXTUAL PERSPECTIVE FIELD R1 PASS)
+   -------------------------------------------------------------------------- */
+.section-vision {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 10rem 2rem 16rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Architectural Layout Grid */
+.vision-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+/* Left Column: Section Index Meta */
+.vision-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+/* Right Column Narrative */
+.vision-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Major Typographic Headline (Fail-Safe Base: Visible by default) */
+.vision-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.1s, transform 1.4s var(--ease-cinematic) 0.1s;
+}
+
+/* Body Narrative Measure (Fail-Safe Base: Visible by default) */
+.vision-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 680px;
+  margin-bottom: 3.8rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.25s, transform 1.4s var(--ease-cinematic) 0.25s;
+}
+
+.vision-body p {
+  margin-bottom: 1.8rem;
+}
+
+.vision-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Expanding Contextual Perspective Field Diagram Wrapper (1200px Desktop Footprint / R1 +55% Boost) */
+.vision-diagram-wrapper {
+  margin: 4rem 0 5.5rem;
+  width: 100%;
+  max-width: 1200px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.45s, transform 1.4s var(--ease-cinematic) 0.45s;
+}
+
+.vision-desktop-view {
+  width: 100%;
+  display: block;
+}
+
+.vision-mobile-view {
+  display: none;
+}
+
+.vision-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.core-label {
+  font-family: var(--font-family-code);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  fill: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+.perspective-label {
+  font-family: var(--font-family-code);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  fill: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+/* Authoritative Conceptual Closing Statement (Fail-Safe Base: Visible) */
+.vision-closing-block {
+  position: relative;
+  max-width: 920px;
+  margin-top: 1rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.65s, transform 1.4s var(--ease-cinematic) 0.65s;
+}
+
+.closing-accent-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  margin-bottom: 1.8rem;
+}
+
+.closing-statement {
+  font-family: var(--font-family-code);
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+/* Progressive Reveal Override when initialized by JS Observer */
+body.is-loaded .section-vision:not(.is-in-view) .vision-headline,
+body.is-loaded .section-vision:not(.is-in-view) .vision-body,
+body.is-loaded .section-vision:not(.is-in-view) .vision-diagram-wrapper,
+body.is-loaded .section-vision:not(.is-in-view) .vision-closing-block {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-vision.is-in-view .vision-headline,
+.section-vision.is-in-view .vision-body,
+.section-vision.is-in-view .vision-diagram-wrapper,
+.section-vision.is-in-view .vision-closing-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Grid & Mobile Adaptation for Section 05 */
+@media (max-width: 1023px) {
+  .section-vision {
+    padding: 7rem 2rem 9rem;
+  }
+  .vision-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .vision-meta {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-vision {
+    padding: 5rem 1.2rem 7rem;
+  }
+  .vision-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.8rem;
+  }
+  .vision-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .vision-diagram-wrapper {
+    margin: 2rem 0 3.5rem;
+  }
+
+  /* Mobile Vision Perspective List */
+  .vision-desktop-view {
+    display: none;
+  }
+  .vision-mobile-view {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-perspective-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .m-perspective-core {
+    font-family: var(--font-family-code);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: #ffffff;
+    padding: 0.6rem 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    background: #000000;
+  }
+
+  .m-perspective-connector {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .m-perspective-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .m-perspective-tag {
+    font-family: var(--font-family-code);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--color-text-silver);
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    background: #000000;
+  }
+
+  .closing-statement {
+    font-size: 0.92rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. SECTION 06 — CONTACT / STAY TUNED (v1)
+   -------------------------------------------------------------------------- */
+.section-contact {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 10rem 2rem 14rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Architectural Layout Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+/* Left Column: Section Index Meta */
+.contact-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+/* Right Column Narrative */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Major Typographic Headline (Fail-Safe Base: Visible by default) */
+.contact-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.1s, transform 1.4s var(--ease-cinematic) 0.1s;
+}
+
+/* Body Narrative Measure (Fail-Safe Base: Visible by default) */
+.contact-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 640px;
+  margin-bottom: 2.8rem;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.25s, transform 1.4s var(--ease-cinematic) 0.25s;
+}
+
+.contact-body p {
+  margin-bottom: 1.4rem;
+}
+
+.contact-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Single Restrained Aurora Spectral Color Accent Rule (56px) */
+.contact-spectral-line {
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  margin-bottom: 3.2rem;
+  opacity: 1;
+  transition: opacity 1.4s var(--ease-cinematic) 0.4s;
+}
+
+/* Precision Aurora Actions Group */
+.contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  flex-wrap: wrap;
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.4s var(--ease-cinematic) 0.55s, transform 1.4s var(--ease-cinematic) 0.55s;
+}
+
+/* Primary Action: Precision Aurora Control */
+.aurora-control-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.6rem;
+  border-radius: 2px;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-code);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.aurora-control-primary .control-text {
+  position: relative;
+  z-index: 2;
+}
+
+.aurora-control-primary .control-border-pulse {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #38cdf0, #9d42f5, transparent);
+  transition: transform 0.6s ease;
+}
+
+.aurora-control-primary:hover {
+  border-color: rgba(255, 255, 255, 0.90);
+  color: #ffffff;
+}
+
+.aurora-control-primary:hover .control-border-pulse {
+  transform: translateX(200%);
+  transition: transform 0.8s var(--ease-cinematic);
+}
+
+.aurora-control-primary:focus-visible {
+  outline: 1px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Secondary Contact Link */
+.aurora-control-secondary {
+  font-family: var(--font-family-code);
+  font-size: 0.84rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.8rem 0;
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.aurora-control-secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: width 0.3s var(--ease-cinematic);
+}
+
+.aurora-control-secondary:hover {
+  color: #ffffff;
+}
+
+.aurora-control-secondary:hover::after {
+  width: 100%;
+}
+
+.aurora-control-secondary:focus-visible {
+  outline: 1px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Progressive Reveal Override when initialized by JS Observer */
+body.is-loaded .section-contact:not(.is-in-view) .contact-headline,
+body.is-loaded .section-contact:not(.is-in-view) .contact-body,
+body.is-loaded .section-contact:not(.is-in-view) .contact-spectral-line,
+body.is-loaded .section-contact:not(.is-in-view) .contact-actions {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.section-contact.is-in-view .contact-headline,
+.section-contact.is-in-view .contact-body,
+.section-contact.is-in-view .contact-spectral-line,
+.section-contact.is-in-view .contact-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section 06 Responsive Adaptations */
+@media (max-width: 1023px) {
+  .section-contact {
+    padding: 7rem 2rem 9rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .contact-meta {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-contact {
+    padding: 5rem 1.2rem 7rem;
+  }
+  .contact-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.8rem;
+  }
+  .contact-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.2rem;
+  }
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.6rem;
+  }
+  .aurora-control-primary {
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 1.8rem;
+  }
+  .aurora-control-secondary {
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. MINIMAL ARCHITECTURAL FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 6rem 2rem 5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Brand Wordmark Base */
+.footer-brand {
+  margin-bottom: 1rem;
+}
+
+.footer-brand-name {
+  font-family: var(--font-family-code);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
+}
+
+/* Signature Line */
+.footer-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  font-family: var(--font-family-code);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--color-text-silver);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.f-sig-word {
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.32em;
+}
+
+.f-sig-dot {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  margin-bottom: 2.8rem;
+}
+
+.footer-nav-list {
+  display: flex;
+  gap: 2.6rem;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-nav-link {
+  font-family: var(--font-family-code);
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.50);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+/* Copyright Line (With Enhanced Accessibility Readability) */
+.footer-copyright {
+  font-family: var(--font-family-code);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.40);
+  text-transform: uppercase;
+}
+
+/* Footer Responsive Adaptations */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 4.5rem 1.2rem 4rem;
+  }
+  .footer-signature {
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    gap: 0.4rem 0.8rem;
+    max-width: 320px;
+  }
+  .footer-nav-list {
+    gap: 1.2rem 1.8rem;
+  }
+  .footer-nav-link {
+    font-size: 0.68rem;
+    letter-spacing: 0.20em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. ACCESSIBILITY / REDUCED MOTION
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -519,12 +2009,53 @@ body.is-loaded .hero-scroll-indicator {
   body.is-loading .hero-logo-wrapper,
   body.is-loading .hero-signature-block,
   body.is-loading .hero-stay-tuned,
-  body.is-loading .hero-scroll-indicator {
+  body.is-loading .hero-scroll-indicator,
+  .aurora-headline,
+  .aurora-body,
+  .aurora-conceptual-block,
+  .experience-headline,
+  .experience-body,
+  .experience-diagram-wrapper,
+  .experience-sequence-block,
+  .technology-headline,
+  .technology-body,
+  .technology-field-wrapper,
+  .technology-territories-grid,
+  .vision-headline,
+  .vision-body,
+  .vision-diagram-wrapper,
+  .vision-closing-block,
+  .contact-headline,
+  .contact-body,
+  .contact-spectral-line,
+  .contact-actions {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 
-  .scroll-line {
+  .signature-line {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    animation: none !important;
+  }
+
+  .r7-analyze-box,
+  .r7-understand-box,
+  .r7-decide-box,
+  .r7-apply-box,
+  .circle-analysis,
+  .circle-understanding,
+  .circle-decision,
+  .circle-processing {
+    animation: none !important;
+  }
+
+  .scroll-line,
+  .m-conductor-pulse {
     animation: none !important;
     top: 25%;
   }
