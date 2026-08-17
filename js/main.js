@@ -83,4 +83,94 @@ document.addEventListener('DOMContentLoaded', () => {
       targetEl.classList.add('is-in-view');
     }
   }
+
+  // 5. Ambient Atmosphere Audio Controller (Native HTML5 Audio + Smooth Volume Fades)
+  const atmosphereBtn = document.getElementById('atmosphere-toggle');
+  const auroraAudio = document.getElementById('aurora-audio-player');
+
+  if (atmosphereBtn && auroraAudio) {
+    const TARGET_VOLUME = 0.30;
+    const FADE_IN_DURATION = 3000; // ~3.0s fade in
+    const FADE_OUT_DURATION = 1800; // ~1.8s fade out
+    let fadeInterval = null;
+
+    const stopFade = () => {
+      if (fadeInterval) {
+        clearInterval(fadeInterval);
+        fadeInterval = null;
+      }
+    };
+
+    const fadeIn = (onComplete) => {
+      stopFade();
+      const startTime = performance.now();
+      const startVol = auroraAudio.volume;
+
+      fadeInterval = setInterval(() => {
+        const elapsed = performance.now() - startTime;
+        const progress = Math.min(elapsed / FADE_IN_DURATION, 1);
+        auroraAudio.volume = startVol + (TARGET_VOLUME - startVol) * progress;
+
+        if (progress >= 1) {
+          stopFade();
+          auroraAudio.volume = TARGET_VOLUME;
+          if (onComplete) onComplete();
+        }
+      }, 30);
+    };
+
+    const fadeOut = (onComplete) => {
+      stopFade();
+      const startTime = performance.now();
+      const startVol = auroraAudio.volume;
+
+      fadeInterval = setInterval(() => {
+        const elapsed = performance.now() - startTime;
+        const progress = Math.min(elapsed / FADE_OUT_DURATION, 1);
+        auroraAudio.volume = Math.max(0, startVol * (1 - progress));
+
+        if (progress >= 1) {
+          stopFade();
+          auroraAudio.volume = 0;
+          auroraAudio.pause();
+          if (onComplete) onComplete();
+        }
+      }, 30);
+    };
+
+    const setControlState = (active) => {
+      atmosphereBtn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      document.body.classList.toggle('atmosphere-active', active);
+    };
+
+    atmosphereBtn.addEventListener('click', () => {
+      const isCurrentlyActive = atmosphereBtn.getAttribute('aria-pressed') === 'true';
+
+      if (!isCurrentlyActive) {
+        // Activate Atmosphere Audio
+        auroraAudio.volume = 0;
+        const playPromise = auroraAudio.play();
+
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setControlState(true);
+            fadeIn();
+          }).catch((err) => {
+            console.warn('Aurora Atmosphere Audio play rejected by browser policy:', err);
+            stopFade();
+            auroraAudio.volume = 0;
+            auroraAudio.pause();
+            setControlState(false);
+          });
+        } else {
+          setControlState(true);
+          fadeIn();
+        }
+      } else {
+        // Deactivate Atmosphere Audio
+        setControlState(false);
+        fadeOut();
+      }
+    });
+  }
 });

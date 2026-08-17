@@ -138,6 +138,67 @@ body.is-loaded .site-header {
   left: 0;
 }
 
+/* Ambient Atmosphere Audio Control */
+.header-atmosphere-wrap {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+}
+
+.atmosphere-control {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  font-family: var(--font-family-code);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: var(--color-text-nav);
+  text-transform: uppercase;
+  transition: color 0.4s ease, opacity 0.4s ease;
+  user-select: none;
+}
+
+.atmosphere-control:hover,
+.atmosphere-control:focus-visible {
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.atmosphere-control:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.atmosphere-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  display: inline-block;
+  transition: border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.atmosphere-control[aria-pressed="true"] {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.atmosphere-control[aria-pressed="true"] .atmosphere-dot {
+  border-color: transparent;
+  background: linear-gradient(135deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  box-shadow: 0 0 6px rgba(56, 205, 240, 0.4);
+}
+
 /* --------------------------------------------------------------------------
    3. HERO SECTION & PURE BLACK ENVIRONMENT (FROZEN REFERENCE v1.0)
    -------------------------------------------------------------------------- */
@@ -446,6 +507,13 @@ body.is-loaded .hero-scroll-indicator {
   .site-header {
     padding: 1.8rem 2rem;
   }
+  .header-atmosphere-wrap {
+    right: 2rem;
+  }
+  .atmosphere-control {
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+  }
   .nav-list {
     gap: 2rem;
   }
@@ -479,6 +547,15 @@ body.is-loaded .hero-scroll-indicator {
 @media (max-width: 767px) {
   .site-header {
     padding: 1.4rem 1.2rem;
+  }
+  .header-atmosphere-wrap {
+    right: 1.2rem;
+  }
+  .atmosphere-control {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    gap: 0.4rem;
+    padding: 0.3rem 0.4rem;
   }
   .nav-list {
     gap: 1.2rem;
@@ -514,6 +591,15 @@ body.is-loaded .hero-scroll-indicator {
   .stay-tuned-text {
     font-size: 0.7rem;
     letter-spacing: 0.32em;
+  }
+}
+
+@media (max-width: 540px) {
+  .header-atmosphere-wrap {
+    right: 0.8rem;
+  }
+  .atmosphere-label {
+    display: none; /* Show dot indicator only on ultra-narrow screens if space is tight, or compact label */
   }
 }
 
@@ -647,12 +733,14 @@ body.is-loaded .hero-scroll-indicator {
   transition: opacity 1.4s var(--ease-cinematic) 0.5s, transform 1.4s var(--ease-cinematic) 0.5s;
 }
 
-/* Single Refined Aurora Spectral Color Accent Rule */
+/* Single Refined Aurora Spectral Color Accent Rule (Horizontal Reveal 1.2s) */
 .conceptual-accent-line {
   width: 48px;
   height: 1px;
   background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
   margin-bottom: 1.6rem;
+  transform-origin: left center;
+  transition: transform 1.2s var(--ease-cinematic) 0.35s, opacity 1.2s var(--ease-cinematic) 0.35s;
 }
 
 .conceptual-line {
@@ -673,11 +761,21 @@ body.is-loaded .section-aurora:not(.is-in-view) .aurora-conceptual-block {
   transform: translateY(24px);
 }
 
+body.is-loaded .section-aurora:not(.is-in-view) .conceptual-accent-line {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
 .section-aurora.is-in-view .aurora-headline,
 .section-aurora.is-in-view .aurora-body,
 .section-aurora.is-in-view .aurora-conceptual-block {
   opacity: 1;
   transform: translateY(0);
+}
+
+.section-aurora.is-in-view .conceptual-accent-line {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* Section 02 Responsive Grid Adaptations */
@@ -840,6 +938,10 @@ body.is-loaded .section-aurora:not(.is-in-view) .aurora-conceptual-block {
   transition: stroke 0.6s ease;
 }
 
+.schematic-node:hover .processor-box {
+  stroke: rgba(255, 255, 255, 0.92);
+}
+
 .micro-glyph {
   opacity: 0.85;
   transition: opacity 0.6s ease;
@@ -861,40 +963,60 @@ body.is-loaded .section-aurora:not(.is-in-view) .aurora-conceptual-block {
   animation: applyBoxIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.r7-analyze-glyph {
+  animation: analyzeGlyphIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-understand-glyph {
+  animation: understandGlyphIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-decide-glyph {
+  animation: decideGlyphIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.r7-apply-glyph {
+  animation: applyGlyphIllumination 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @keyframes analyzeBoxIllumination {
-  0%, 12%, 36%, 100% {
-    stroke: rgba(255, 255, 255, 0.65);
-  }
-  24% {
-    stroke: #38cdf0;
-  }
+  0%, 12%, 36%, 100% { stroke: rgba(255, 255, 255, 0.65); }
+  24% { stroke: #38cdf0; }
 }
 
 @keyframes understandBoxIllumination {
-  0%, 32%, 56%, 100% {
-    stroke: rgba(255, 255, 255, 0.65);
-  }
-  44% {
-    stroke: #2b7fff;
-  }
+  0%, 32%, 56%, 100% { stroke: rgba(255, 255, 255, 0.65); }
+  44% { stroke: #2b7fff; }
 }
 
 @keyframes decideBoxIllumination {
-  0%, 52%, 76%, 100% {
-    stroke: rgba(255, 255, 255, 0.65);
-  }
-  64% {
-    stroke: #9d42f5;
-  }
+  0%, 52%, 76%, 100% { stroke: rgba(255, 255, 255, 0.65); }
+  64% { stroke: #9d42f5; }
 }
 
 @keyframes applyBoxIllumination {
-  0%, 72%, 96%, 100% {
-    stroke: rgba(255, 255, 255, 0.65);
-  }
-  84% {
-    stroke: #e042f5;
-  }
+  0%, 72%, 96%, 100% { stroke: rgba(255, 255, 255, 0.65); }
+  84% { stroke: #e042f5; }
+}
+
+@keyframes analyzeGlyphIllumination {
+  0%, 12%, 36%, 100% { opacity: 0.82; }
+  24% { opacity: 1.0; filter: drop-shadow(0 0 2px rgba(56, 205, 240, 0.6)); }
+}
+
+@keyframes understandGlyphIllumination {
+  0%, 32%, 56%, 100% { opacity: 0.82; }
+  44% { opacity: 1.0; filter: drop-shadow(0 0 2px rgba(43, 127, 255, 0.6)); }
+}
+
+@keyframes decideGlyphIllumination {
+  0%, 52%, 76%, 100% { opacity: 0.82; }
+  64% { opacity: 1.0; filter: drop-shadow(0 0 2px rgba(157, 66, 245, 0.6)); }
+}
+
+@keyframes applyGlyphIllumination {
+  0%, 72%, 96%, 100% { opacity: 0.82; }
+  84% { opacity: 1.0; filter: drop-shadow(0 0 2px rgba(224, 66, 245, 0.6)); }
 }
 
 /* Sequence Conclusion Block (Fail-Safe Base: Visible by default) */
@@ -1193,6 +1315,15 @@ body.is-loaded .section-experience:not(.is-in-view) .experience-sequence-block {
   animation: techNodeGlowProcessing 12s infinite ease-in-out 9s;
 }
 
+.tech-quadrant-diamond {
+  animation: techQuadrantDiamondBreathe 20s infinite ease-in-out;
+}
+
+@keyframes techQuadrantDiamondBreathe {
+  0%, 100% { stroke-opacity: 0.16; }
+  50% { stroke-opacity: 0.28; }
+}
+
 @keyframes techNodeGlowAnalysis {
   0%, 100% { stroke: rgba(255, 255, 255, 0.70); }
   25% { stroke: #38cdf0; }
@@ -1477,6 +1608,24 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
   overflow: visible;
 }
 
+.vision-ring-mid {
+  animation: visionCoreRingMidBreathe 18s infinite ease-in-out;
+}
+
+.vision-ring-outer {
+  animation: visionCoreRingOuterBreathe 22s infinite ease-in-out;
+}
+
+@keyframes visionCoreRingMidBreathe {
+  0%, 100% { stroke-opacity: 0.25; }
+  50% { stroke-opacity: 0.50; }
+}
+
+@keyframes visionCoreRingOuterBreathe {
+  0%, 100% { stroke-opacity: 0.18; }
+  50% { stroke-opacity: 0.38; }
+}
+
 .core-label {
   font-family: var(--font-family-code);
   font-size: 0.76rem;
@@ -1493,6 +1642,18 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
   letter-spacing: 0.28em;
   fill: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
+}
+
+/* ATMOSPHERE Audio Active State: Restrained +12% stroke/luminance presence (Zero duration acceleration) */
+body.atmosphere-active .processor-box,
+body.atmosphere-active .tech-node-circle,
+body.atmosphere-active .vision-perspective-node circle {
+  stroke-opacity: 0.88;
+  transition: stroke-opacity 1.2s ease;
+}
+
+body.atmosphere-active .micro-glyph {
+  opacity: 0.95;
 }
 
 /* Authoritative Conceptual Closing Statement (Fail-Safe Base: Visible) */
