@@ -2235,3 +2235,408 @@ body.is-loaded .section-contact:not(.is-in-view) .contact-actions {
     top: 25%;
   }
 }
+
+/* --------------------------------------------------------------------------
+   15. ATRYOME CORPORATE HOMEPAGE STYLES (ISOLATED SCOPE)
+   -------------------------------------------------------------------------- */
+.corp-header .corp-header-logo {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.corp-header .header-brand-link {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 2.5rem;
+}
+
+.corp-header .main-nav {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.corp-header .nav-list {
+  gap: 3.2rem;
+}
+
+.corp-header .header-atmosphere-wrap {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.corp-hero-section {
+  padding: 8rem 2rem 5rem;
+}
+
+.corp-hero-container {
+  margin: 0 auto;
+}
+
+.corp-hero-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.corp-logo-wrapper {
+  display: block;
+  width: 100%;
+  max-width: clamp(240px, 38vw, 640px);
+  margin: 0 auto 2.2rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 1.8s var(--ease-cinematic) 0.2s, transform 1.8s var(--ease-cinematic) 0.2s;
+}
+
+body.is-loaded .corp-logo-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.corp-hero-logo-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  object-fit: contain;
+}
+
+.corp-hero-statement-block {
+  margin-bottom: 2.8rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.6s var(--ease-cinematic) 0.45s, transform 1.6s var(--ease-cinematic) 0.45s;
+}
+
+body.is-loaded .corp-hero-statement-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.corp-hero-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.corp-hero-substatement {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-silver);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.corp-hero-actions {
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 1.6s var(--ease-cinematic) 0.7s, transform 1.6s var(--ease-cinematic) 0.7s;
+}
+
+body.is-loaded .corp-hero-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.corp-action-btn {
+  padding: 1.1rem 2.4rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  display: inline-flex;
+}
+
+/* Hero Continuation Indicator Length Refinement */
+.corp-homepage .scroll-line-wrap {
+  height: 80px;
+}
+
+.corp-homepage .hero-scroll-indicator {
+  bottom: -3.8rem;
+}
+
+/* Corporate Four Pillars Grid */
+.corp-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+  margin-top: 3.2rem;
+  width: 100%;
+}
+
+.corp-pillar-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 2.5rem 1.8rem 2.2rem;
+  border-radius: 4px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s var(--ease-cinematic);
+}
+
+.corp-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(56, 205, 240, 0.7), rgba(175, 80, 240, 0.7));
+  transition: width 0.45s var(--ease-cinematic);
+}
+
+.corp-pillar-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.035);
+  transform: translateY(-3px);
+}
+
+.corp-pillar-card:hover::before {
+  width: 100%;
+}
+
+.pillar-number {
+  font-family: var(--font-family-code);
+  font-size: 0.78rem;
+  letter-spacing: 0.36em;
+  color: rgba(56, 205, 240, 0.75);
+  margin-bottom: 1.4rem;
+  font-weight: 500;
+}
+
+.pillar-title {
+  font-family: var(--font-family-code);
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: #ffffff;
+  margin-bottom: 0.9rem;
+}
+
+.pillar-desc {
+  font-family: var(--font-family-main);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-text-silver);
+}
+
+/* Corporate Design Principles Continuation */
+.corp-principles-block {
+  margin-top: 3.5rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.principle-item {
+  font-family: var(--font-family-main);
+  font-size: clamp(0.96rem, 1.4vw, 1.12rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Corporate Product Showcase */
+.corp-product-showcase {
+  margin-top: 3.2rem;
+  width: 100%;
+}
+
+.corp-product-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3.8rem 3.5rem;
+  border-radius: 6px;
+  text-align: left;
+  max-width: 960px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.corp-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(56, 205, 240, 0.8), rgba(175, 80, 240, 0.8));
+  transition: width 0.5s var(--ease-cinematic);
+}
+
+.corp-product-card:hover {
+  border-color: rgba(56, 205, 240, 0.35);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.corp-product-card:hover::before {
+  width: 100%;
+}
+
+.product-card-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.product-brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-badge {
+  font-family: var(--font-family-code);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  color: rgba(56, 205, 240, 0.9);
+  background: rgba(56, 205, 240, 0.08);
+  border: 1px solid rgba(56, 205, 240, 0.22);
+  padding: 0.38rem 0.88rem;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 1.8rem;
+}
+
+.product-logo-wrap {
+  max-width: 340px;
+  width: 100%;
+}
+
+.product-aurora-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-details-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.product-desc {
+  font-family: var(--font-family-main);
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: var(--color-text-silver);
+  margin-bottom: 2.2rem;
+}
+
+.product-cta-btn {
+  display: inline-flex;
+}
+
+/* Corporate Footer Brand & Logo */
+.corp-footer .footer-brand {
+  margin-bottom: 2.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.corp-footer .footer-logo-img {
+  height: 22px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 1023px) {
+  .corp-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+  .product-card-split {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+  .corp-product-card {
+    padding: 3rem 2.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .corp-homepage .scroll-line-wrap {
+    height: 60px;
+  }
+  .corp-header {
+    padding: 1.2rem 1rem 0.8rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .corp-header .header-brand-link {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    padding-right: 0;
+    margin-bottom: 0.2rem;
+    display: flex;
+    justify-content: center;
+  }
+  .corp-header .header-logo-img {
+    height: 17px;
+  }
+  .corp-header .nav-list {
+    gap: 1.1rem;
+    justify-content: center;
+  }
+  .corp-header .nav-link {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
+  .corp-header .header-atmosphere-wrap {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin-top: 0.1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .corp-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+  .corp-product-card {
+    padding: 2.2rem 1.6rem;
+  }
+  .product-logo-wrap {
+    max-width: 260px;
+  }
+  .corp-footer .footer-logo-img {
+    height: 18px;
+    max-width: 160px;
+  }
+}
+
