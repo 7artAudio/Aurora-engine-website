@@ -1455,9 +1455,9 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
 
   .mobile-tech-item {
     display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    padding: 0.8rem 0;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.4rem 0;
   }
 
   .m-tech-anchor {
@@ -1469,7 +1469,7 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 0.2rem;
+    margin-top: 0;
   }
 
   .m-anchor-dot {
@@ -1482,7 +1482,7 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
   .m-tech-info {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0;
   }
 
   .m-tech-title {
@@ -1493,16 +1493,14 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
     color: rgba(255, 255, 255, 0.95);
   }
 
+  /* Mobile Technology Field Sequence: Hide description to avoid duplication with detailed cards below */
   .m-tech-desc {
-    font-family: var(--font-family-main);
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--color-text-silver);
+    display: none;
   }
 
   .m-tech-connector {
     width: 1px;
-    height: 24px;
+    height: 18px;
     background: rgba(255, 255, 255, 0.2);
     margin-left: 12px;
   }
