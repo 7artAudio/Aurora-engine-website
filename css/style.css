@@ -90,6 +90,7 @@ body.is-loaded .site-header {
   transform: translateY(0);
 }
 
+.header-brand-link,
 .main-nav {
   pointer-events: auto;
 }
@@ -2369,7 +2370,11 @@ body.is-loaded .corp-hero-actions {
 }
 
 .aurora-homepage .scroll-line-wrap {
-  height: 116px;
+  height: 160px;
+}
+
+.aurora-homepage .hero-scroll-indicator {
+  bottom: -13.2rem;
 }
 
 .corp-homepage .hero-scroll-indicator {
@@ -2592,7 +2597,10 @@ body.is-loaded .corp-hero-actions {
     height: 60px;
   }
   .aurora-homepage .scroll-line-wrap {
-    height: 86px;
+    height: 110px;
+  }
+  .aurora-homepage .hero-scroll-indicator {
+    bottom: -10.0rem;
   }
   .corp-header {
     padding: 1.2rem 1rem 0.8rem;
