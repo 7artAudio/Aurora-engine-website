@@ -2726,3 +2726,126 @@ body.is-loaded .corp-hero-actions {
   }
 }
 
+/* --------------------------------------------------------------------------
+   16. ATRYOME 404 ERROR PAGE STYLES
+   -------------------------------------------------------------------------- */
+.page-404-body {
+  background-color: var(--color-bg-pure);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-main);
+  overflow-x: hidden;
+}
+
+.header-404 {
+  padding: 2.6rem 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.header-404-logo {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.main-404 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.code-404 {
+  font-family: var(--font-family-code);
+  font-size: clamp(3.8rem, 9vw, 7rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1;
+  margin-bottom: 1.4rem;
+}
+
+.label-404 {
+  font-family: var(--font-family-code);
+  font-size: clamp(0.82rem, 1.4vw, 1.0rem);
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  color: rgba(56, 205, 240, 0.9);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.text-404 {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-text-silver);
+  margin-bottom: 2.4rem;
+  max-width: 500px;
+}
+
+.spectral-line-404 {
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, #38cdf0 0%, #2b7fff 38%, #9d42f5 72%, #e042f5 100%);
+  margin-bottom: 2.8rem;
+}
+
+.btn-404 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.6rem;
+  border-radius: 2px;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-code);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+}
+
+.btn-404:hover,
+.btn-404:focus-visible {
+  border-color: rgba(56, 205, 240, 0.8);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.btn-404:focus-visible {
+  outline: 1px solid #00ffff;
+  outline-offset: 4px;
+}
+
+.footer-404 {
+  padding: 0 2rem 2.4rem;
+  text-align: center;
+}
+
+.footer-404-text {
+  font-family: var(--font-family-code);
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+}
+
