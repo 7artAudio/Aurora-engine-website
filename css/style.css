@@ -2664,6 +2664,14 @@ body.is-loaded .corp-hero-actions {
 }
 
 @media (max-width: 767px) {
+  .corp-logo-wrapper {
+    max-width: 280px;
+    margin-bottom: 1.8rem;
+  }
+  .corp-hero-headline {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
   .corp-homepage .scroll-line-wrap {
     height: 60px;
   }
