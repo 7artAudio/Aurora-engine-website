@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 5. Ambient Atmosphere Audio Controller (Native HTML5 Audio + Smooth Volume Fades)
+  // 5. Ambient Atmosphere Audio Controller (Native HTML5 Audio + Ambient Autoplay + Mute/Unmute Toggle)
   const atmosphereBtn = document.getElementById('atmosphere-toggle');
   const auroraAudio = document.getElementById('aurora-audio-player');
 
@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const FADE_IN_DURATION = 3000; // ~3.0s fade in
     const FADE_OUT_DURATION = 1800; // ~1.8s fade out
     let fadeInterval = null;
+    let fallbackAttempted = false;
 
     const stopFade = () => {
       if (fadeInterval) {
@@ -143,11 +144,55 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('atmosphere-active', active);
     };
 
+    const removeFallbackListeners = () => {
+      window.removeEventListener('pointerdown', handleFirstInteraction, { capture: true });
+      window.removeEventListener('touchstart', handleFirstInteraction, { capture: true });
+      window.removeEventListener('keydown', handleFirstInteraction, { capture: true });
+    };
+
+    const handleFirstInteraction = (e) => {
+      if (fallbackAttempted) return;
+
+      if (e && e.target && atmosphereBtn.contains(e.target)) {
+        fallbackAttempted = true;
+        removeFallbackListeners();
+        return;
+      }
+
+      fallbackAttempted = true;
+      removeFallbackListeners();
+
+      auroraAudio.volume = 0;
+      const playPromise = auroraAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setControlState(true);
+          fadeIn();
+        }).catch(() => {
+          stopFade();
+          auroraAudio.volume = 0;
+          auroraAudio.pause();
+          setControlState(false);
+        });
+      }
+    };
+
+    const registerFallback = () => {
+      if (fallbackAttempted) return;
+      window.addEventListener('pointerdown', handleFirstInteraction, { capture: true });
+      window.addEventListener('touchstart', handleFirstInteraction, { capture: true });
+      window.addEventListener('keydown', handleFirstInteraction, { capture: true });
+    };
+
+    // Manual Sound Toggle (SOUND ON / SOUND OFF)
     atmosphereBtn.addEventListener('click', () => {
+      fallbackAttempted = true;
+      removeFallbackListeners();
+
       const isCurrentlyActive = atmosphereBtn.getAttribute('aria-pressed') === 'true';
 
       if (!isCurrentlyActive) {
-        // Activate Atmosphere Audio
+        // Activate Sound
         auroraAudio.volume = 0;
         const playPromise = auroraAudio.play();
 
@@ -155,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
           playPromise.then(() => {
             setControlState(true);
             fadeIn();
-          }).catch((err) => {
-            console.warn('Aurora Atmosphere Audio play rejected by browser policy:', err);
+          }).catch(() => {
             stopFade();
             auroraAudio.volume = 0;
             auroraAudio.pause();
@@ -167,10 +211,33 @@ document.addEventListener('DOMContentLoaded', () => {
           fadeIn();
         }
       } else {
-        // Deactivate Atmosphere Audio
+        // Mute / Deactivate Sound
         setControlState(false);
         fadeOut();
       }
     });
+
+    // Initial Autoplay Attempt (Page Load)
+    auroraAudio.volume = 0;
+    const initialPlay = auroraAudio.play();
+
+    if (initialPlay !== undefined) {
+      initialPlay.then(() => {
+        fallbackAttempted = true;
+        setControlState(true);
+        fadeIn();
+      }).catch(() => {
+        // Autoplay blocked by browser policy — remain silent and await first user interaction
+        stopFade();
+        auroraAudio.volume = 0;
+        auroraAudio.pause();
+        setControlState(false);
+        registerFallback();
+      });
+    } else {
+      fallbackAttempted = true;
+      setControlState(true);
+      fadeIn();
+    }
   }
 });
