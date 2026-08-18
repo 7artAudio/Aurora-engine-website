@@ -1568,7 +1568,7 @@ body.is-loaded .section-technology:not(.is-in-view) .technology-territories-grid
   position: relative;
   width: 100%;
   background-color: var(--color-bg-pure);
-  padding: 10rem 2rem 16rem;
+  padding: 10rem 2rem 10rem;
   overflow: hidden;
   z-index: 10;
 }
@@ -1850,13 +1850,214 @@ body.is-loaded .section-vision:not(.is-in-view) .vision-closing-block {
 }
 
 /* --------------------------------------------------------------------------
-   12. SECTION 06 — CONTACT / STAY TUNED (v1)
+   12. SECTION 06 — EARLY COMMUNITY (BREVO SIMPLE HTML INTEGRATION)
+   -------------------------------------------------------------------------- */
+.section-community {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-pure);
+  padding: 9rem 2rem 6rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem 5rem;
+  align-items: start;
+}
+
+.community-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-family-code);
+  font-size: 0.85rem;
+  letter-spacing: 0.34em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  padding-top: 0.6rem;
+  user-select: none;
+}
+
+.community-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.community-headline {
+  font-family: var(--font-family-main);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 1.8rem;
+  max-width: 900px;
+}
+
+.community-body {
+  font-family: var(--font-family-main);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--color-text-silver);
+  max-width: 720px;
+  margin-bottom: 2.2rem;
+}
+
+.early-community-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+  width: 100%;
+}
+
+.community-form-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: stretch;
+  margin-bottom: 1.8rem;
+  width: 100%;
+}
+
+.community-input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.community-email-input {
+  width: 100%;
+  height: 100%;
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: var(--font-family-code);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  padding: 0.95rem 1.4rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+  box-sizing: border-box;
+}
+
+.community-email-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-family-code);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+}
+
+.community-email-input:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.community-email-input:focus {
+  border-color: rgba(0, 229, 255, 0.7);
+  background: rgba(0, 229, 255, 0.02);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.12);
+}
+
+.community-submit-btn {
+  height: auto;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: transparent;
+}
+
+.community-consent-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.community-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.community-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.community-checkbox-label:hover .checkbox-custom {
+  border-color: rgba(0, 229, 255, 0.6);
+}
+
+.community-checkbox-input:focus-visible + .checkbox-custom {
+  outline: 2px solid rgba(0, 229, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.community-checkbox-input:checked + .checkbox-custom {
+  background: rgba(0, 229, 255, 0.15);
+  border-color: rgba(0, 229, 255, 0.85);
+}
+
+.community-checkbox-input:checked + .checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #00e5ff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.consent-text {
+  font-family: var(--font-family-main);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.unsubscribe-note {
+  font-family: var(--font-family-main);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.42);
+  margin-left: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. SECTION 07 — CONTACT / STAY TUNED (v1)
    -------------------------------------------------------------------------- */
 .section-contact {
   position: relative;
   width: 100%;
   background-color: var(--color-bg-pure);
-  padding: 10rem 2rem 14rem;
+  padding: 6rem 2rem 19rem;
   overflow: hidden;
   z-index: 10;
 }
@@ -2070,23 +2271,58 @@ body.is-loaded .section-contact:not(.is-in-view) .contact-actions {
   transform: translateY(0);
 }
 
-/* Section 06 Responsive Adaptations */
+/* Section 06 / 07 Responsive Adaptations */
 @media (max-width: 1023px) {
-  .section-contact {
-    padding: 7rem 2rem 9rem;
+  .section-community {
+    padding: 6rem 2rem 4rem;
   }
+  .section-contact {
+    padding: 4rem 2rem 14rem;
+  }
+  .community-grid,
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  .community-meta,
   .contact-meta {
     padding-top: 0;
   }
 }
 
 @media (max-width: 767px) {
+  .section-community {
+    padding: 4rem 1.2rem 3rem;
+  }
+  .community-headline {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+  .community-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+  }
+  .community-form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .community-email-input {
+    min-height: 48px;
+    font-size: 0.78rem;
+    padding: 0.85rem 1.2rem;
+  }
+  .community-submit-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+  .unsubscribe-note {
+    margin-left: 0;
+    margin-top: 0.2rem;
+  }
   .section-contact {
-    padding: 5rem 1.2rem 7rem;
+    padding: 3rem 1.2rem 9rem;
   }
   .contact-headline {
     font-size: 1.85rem;
