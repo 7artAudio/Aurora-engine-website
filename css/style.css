@@ -2682,7 +2682,7 @@ body.is-loaded .corp-hero-actions {
     bottom: -10.0rem;
   }
   .corp-header {
-    padding: 1.2rem 1rem 0.8rem;
+    padding: 1.2rem 0.8rem 0.8rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -2702,12 +2702,12 @@ body.is-loaded .corp-hero-actions {
     height: 17px;
   }
   .corp-header .nav-list {
-    gap: 1.1rem;
+    gap: 1rem;
     justify-content: center;
   }
   .corp-header .nav-link {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
   }
   .corp-header .header-atmosphere-wrap {
     position: relative;
@@ -2718,6 +2718,21 @@ body.is-loaded .corp-hero-actions {
     display: flex;
     justify-content: center;
   }
+}
+
+@media (max-width: 340px) {
+  .corp-header {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  .corp-header .nav-list {
+    gap: 0.65rem;
+  }
+  .corp-header .nav-link {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+}
   .corp-pillars-grid {
     grid-template-columns: 1fr;
     gap: 1.4rem;
